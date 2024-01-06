@@ -19,12 +19,16 @@ function App() {
 	}, []);
 
 	return (
-		<div>
+		<div className={'flex flex-col'}>
 			<Header />
-			<div className={'py-5'}>
+			<div
+				className={
+					'py-5 flex-grow min-h-[calc(100vh-var(--nav-foot-height)*2)]'
+				}
+			>
 				<Routes>{Object.values(RouterConfig).map(renderRoute)}</Routes>
 			</div>
-			<Footer />
+			<Footer className={'shrink-0'} />
 		</div>
 	);
 }

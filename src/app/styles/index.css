@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --nav-foot-height: 55px;
+}
+
 body {
     font-family: 'Manrope', Monaco, Consolas, "Courier New", monospace;
 }
