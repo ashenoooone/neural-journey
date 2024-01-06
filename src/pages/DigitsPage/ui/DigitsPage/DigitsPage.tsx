@@ -1,6 +1,11 @@
-import React, { FC, ReactNode } from 'react';
-import cls from './DigitsPage.module.scss';
+import React, { FC } from 'react';
+import { Page } from '~/shared/ui/Page';
+import { DrawNumbers } from '~/features/DrawNumbers';
 
-export const DigitsPage = () => {
-	return <div className={cls.DigitsPage}>{1}</div>;
+export const DigitsPage: FC = () => {
+	return (
+		<Page>
+			<DrawNumbers />
+		</Page>
+	);
 };
