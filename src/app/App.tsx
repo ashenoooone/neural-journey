@@ -1,6 +1,8 @@
 import { Route, RouteProps, Routes } from 'react-router-dom';
 import { RouterConfig } from '~/shared/configs/routerConfig/routerConfig.tsx';
 import { Suspense, useCallback } from 'react';
+import { Footer } from '~/widgets/Footer';
+import { Header } from '~/widgets/Header';
 
 function App() {
 	const renderRoute = useCallback((route: RouteProps) => {
@@ -16,7 +18,15 @@ function App() {
 		);
 	}, []);
 
-	return <Routes>{Object.values(RouterConfig).map(renderRoute)}</Routes>;
+	return (
+		<div>
+			<Header />
+			<div className={'py-5'}>
+				<Routes>{Object.values(RouterConfig).map(renderRoute)}</Routes>
+			</div>
+			<Footer />
+		</div>
+	);
 }
 
 export default App;
