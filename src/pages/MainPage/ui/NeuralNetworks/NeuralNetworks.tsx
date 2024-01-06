@@ -20,13 +20,13 @@ export const NeuralNetworks = (props: NeuralNetworksProps) => {
 
 	const items: INeuralNetworkCard[] = useMemo(
 		() => [
-			{
-				title: 'Распознавание цифр',
-				description:
-					'Эта нейросеть обучена распознавать и классифицировать цифры. Используется для решения задачи распознавания рукописных или напечатанных цифр.',
-				image: numbersDigitsImage,
-				link: RoutesPaths.digits
-			},
+			// {
+			// 	title: 'Распознавание цифр',
+			// 	description:
+			// 		'Эта нейросеть обучена распознавать и классифицировать цифры. Используется для решения задачи распознавания рукописных или напечатанных цифр.',
+			// 	image: numbersDigitsImage,
+			// 	link: RoutesPaths.digits
+			// },
 			{
 				title: 'Распознавание числ',
 				description:
