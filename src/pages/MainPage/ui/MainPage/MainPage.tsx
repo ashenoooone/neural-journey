@@ -1,16 +1,11 @@
-import React, { FC, ReactNode } from 'react';
-import cls from "./MainPage.module.scss";
+import React from 'react';
+import cls from './MainPage.module.scss';
+import { Button } from '~/shared/ui/Button';
 
-interface MainPageProps {
-  className?: string;
-  children?: ReactNode;
-}
-
-export const MainPage = (props: MainPageProps) => {
-  const { className='', children } = props;
-  return (
-  <div className={cls.MainPage}>
-    {children}
-  </div>
-  );
+export const MainPage = () => {
+	return (
+		<div className={cls.MainPage}>
+			<Button>1</Button>
+		</div>
+	);
 };

@@ -1,3 +1,14 @@
 .NotFoundPage {
+  @apply flex flex-col items-center justify-center h-screen space-y-4;
+  background-color: #f7fafc;
+  color: #1a202c;
+  padding: 2rem;
 
+  h1 {
+    @apply text-6xl font-extrabold text-indigo-600;
+  }
+
+  p {
+    @apply text-lg font-medium text-gray-600;
+  }
 }
