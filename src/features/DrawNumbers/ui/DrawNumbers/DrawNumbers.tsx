@@ -1,10 +1,4 @@
-import React, {
-	MutableRefObject,
-	ReactNode,
-	useCallback,
-	useEffect,
-	useRef
-} from 'react';
+import React, { MutableRefObject, useCallback, useEffect, useRef } from 'react';
 import { ReactSketchCanvas } from 'react-sketch-canvas';
 import { ReactSketchCanvasRef } from 'react-sketch-canvas/src/ReactSketchCanvas';
 import { Button } from '~/shared/ui/Button';
@@ -34,14 +28,12 @@ export const DrawNumbers = (props: DrawNumbersProps) => {
 		return () => {
 			document.removeEventListener('keydown', handleKeyDown);
 		};
-	}, []);
+	}, [handleKeyDown]);
 
-	const onPredictClick = useCallback(
-		async (event: React.MouseEvent<HTMLButtonElement>) => {
-			await sendNumbers(await canvasRef.current?.exportImage('jpeg'));
-		},
-		[sendNumbers]
-	);
+	const onPredictClick = useCallback(async () => {
+		const base64Image = await canvasRef.current?.exportImage('jpeg');
+		sendNumbers(base64Image);
+	}, []);
 
 	const onResetClick = useCallback(() => {
 		canvasRef.current?.clearCanvas();
@@ -53,7 +45,7 @@ export const DrawNumbers = (props: DrawNumbersProps) => {
 		<div className={classNames('flex gap-10', {}, [className])}>
 			<ReactSketchCanvas
 				ref={canvasRef}
-				width='550px'
+				width='1100px'
 				height='550px'
 				strokeWidth={4}
 				strokeColor='white'
@@ -67,7 +59,17 @@ export const DrawNumbers = (props: DrawNumbersProps) => {
 				<h2 className={'text-2xl font-bold'}>Результат предсказывания</h2>
 				<div>
 					{error && <span className={'font-bold text-red-800'}>{error}</span>}
-					{response && <span className={'font-bold'}>{response?.data}</span>}
+					{response && (
+						<div className={'font-bold'}>
+							<p>Нейросеть видит числа:</p>
+							<p>{response.data.result.sort((a, b) => a - b).join(', ')}</p>
+						</div>
+					)}
+					{isLoading && (
+						<span className={'font-bold text-blue-800'}>
+							Нейросеть думает...
+						</span>
+					)}
 				</div>
 			</div>
 		</div>

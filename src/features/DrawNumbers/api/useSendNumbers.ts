@@ -8,10 +8,15 @@ export interface IUseSendNumbersReturnValue {
 	response?: AxiosResponse;
 }
 
+export interface IAxiosResponseNumbers {
+	result: number[];
+}
+
 export const useSendNumbers = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState('');
-	const [response, setResponse] = useState<AxiosResponse | null>(null);
+	const [response, setResponse] =
+		useState<AxiosResponse<IAxiosResponseNumbers> | null>(null);
 
 	const sendNumbers = async (image?: string) => {
 		setIsLoading(true);
@@ -19,7 +24,7 @@ export const useSendNumbers = () => {
 		setResponse(null);
 
 		try {
-			const response = await $api.post('/numbers', { image });
+			const response = await $api.post('/networkNumbers', { image });
 			setResponse(response);
 		} catch (error) {
 			// @ts-ignore
