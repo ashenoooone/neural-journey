@@ -15,19 +15,19 @@ export interface IAxiosResponseNumbers {
 	};
 }
 
-export const useSendNumbers = () => {
+export const useSendPhotoCifar = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState('');
 	const [response, setResponse] =
 		useState<AxiosResponse<IAxiosResponseNumbers> | null>(null);
-
-	const sendNumbers = async (image?: string) => {
+	const reader = new FileReader();
+	const sendPhoto = async (image?: string) => {
 		setIsLoading(true);
 		setError('');
 		setResponse(null);
 
 		try {
-			const response = await $api.post('/networkNumbers', { image });
+			const response = await $api.post('/networkCifar', { image });
 			setResponse(response);
 		} catch (error) {
 			// @ts-ignore
@@ -41,6 +41,6 @@ export const useSendNumbers = () => {
 		isLoading,
 		error,
 		response,
-		sendNumbers
+		sendPhoto
 	};
 };

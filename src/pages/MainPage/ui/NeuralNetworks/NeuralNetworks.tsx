@@ -4,12 +4,10 @@ import {
 	INeuralNetworkCard,
 	NeuralNetworkList
 } from '~/entities/NeuralNetwork';
-import numbersDigitsImage from '~/shared/assets/neural-digits.jpg';
 import numbersNumbersImage from '~/shared/assets/neural-numbers.jpg';
-import {
-	Routes,
-	RoutesPaths
-} from '~/shared/configs/routerConfig/routerConfig.tsx';
+import neuralCifar from '~/shared/assets/neural-cifat.jpg';
+import drone from '~/shared/assets/drone.jpg';
+import { RoutesPaths } from '~/shared/configs/routerConfig/routerConfig.tsx';
 interface NeuralNetworksProps {
 	className?: string;
 	children?: ReactNode;
@@ -20,13 +18,6 @@ export const NeuralNetworks = (props: NeuralNetworksProps) => {
 
 	const items: INeuralNetworkCard[] = useMemo(
 		() => [
-			// {
-			// 	title: 'Распознавание цифр',
-			// 	description:
-			// 		'Эта нейросеть обучена распознавать и классифицировать цифры. Используется для решения задачи распознавания рукописных или напечатанных цифр.',
-			// 	image: numbersDigitsImage,
-			// 	link: RoutesPaths.digits
-			// },
 			{
 				title: 'Распознавание числ',
 				description:
@@ -35,16 +26,18 @@ export const NeuralNetworks = (props: NeuralNetworksProps) => {
 				link: RoutesPaths.digits
 			},
 			{
-				title: 'Распознавание 3',
-				description: 'Neural Network Description',
-				image: 'https://i.ibb.co/z4z4z4z/Neural-Network.png',
-				link: RoutesPaths.digits
+				title: 'Cifar: распознавание предметов',
+				description:
+					'Наша нейронная сеть предоставляет невероятную точность в распознавании объектов на фотографиях, обеспечивая высокоточное и быстрое определение элементов в изображениях.',
+				image: neuralCifar,
+				link: RoutesPaths.cifar
 			},
 			{
-				title: 'Распознавание 3',
-				description: 'Neural Network Description',
-				image: 'https://i.ibb.co/z4z4z4z/Neural-Network.png',
-				link: RoutesPaths.digits
+				title: 'Распознавание объектов с фото дрона.',
+				description:
+					'Наша нейросеть, специально разработанная для анализа фотографий с дронов, обеспечивает выдающуюся точность в распознавании объектов.',
+				image: drone,
+				link: RoutesPaths.drone
 			}
 		],
 		[]

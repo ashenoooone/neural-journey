@@ -9,7 +9,7 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ className = '' }) => {
 	return (
 		<header
-			className={`bg-gray-800 text-white max-h-[var(--header-height)] py-4 ${className}`}
+			className={`bg-gray-800 px-4 text-white max-h-[var(--header-height)] py-4 ${className}`}
 		>
 			<div className='container mx-auto flex justify-between items-center'>
 				<Link

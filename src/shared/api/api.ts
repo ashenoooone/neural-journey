@@ -1,4 +1,4 @@
 import axios from 'axios';
 export const $api = axios.create({
-	baseURL: 'https://netwrockrode.onrender.com/'
+	baseURL: 'http://94.228.123.176/'
 });

@@ -32,8 +32,8 @@ export const DrawNumbers = (props: DrawNumbersProps) => {
 
 	const onPredictClick = useCallback(async () => {
 		const base64Image = await canvasRef.current?.exportImage('jpeg');
-		sendNumbers(base64Image);
-	}, []);
+		await sendNumbers(base64Image);
+	}, [sendNumbers]);
 
 	const onResetClick = useCallback(() => {
 		canvasRef.current?.clearCanvas();
@@ -62,7 +62,14 @@ export const DrawNumbers = (props: DrawNumbersProps) => {
 					{response && (
 						<div className={'font-bold'}>
 							<p>Нейросеть видит числа:</p>
-							<p>{response.data.result.sort((a, b) => a - b).join(', ')}</p>
+							<p>
+								{response.data.result.answer.sort((a, b) => a - b).join(', ')}
+							</p>
+							<img
+								alt={'результат'}
+								className={'w-full'}
+								src={'data:image/png;base64,' + response.data.result.image}
+							/>
 						</div>
 					)}
 					{isLoading && (
