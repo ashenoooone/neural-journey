@@ -1,7 +1,8 @@
-import React, { FC, HTMLAttributes, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import cls from './Link.module.scss';
 import { classNames } from '~/shared/lib/classNames';
 import { Link as RLink, LinkProps as RlinkProps } from 'react-router-dom';
+import { Typography } from '~/shared/ui/Typography';
 
 interface LinkProps extends RlinkProps {
 	className?: string;
@@ -15,7 +16,7 @@ export const Link = (props: LinkProps) => {
 			className={classNames(cls.Link, {}, [className])}
 			{...other}
 		>
-			{children}
+			<Typography variant={'p'}>{children}</Typography>
 		</RLink>
 	);
 };

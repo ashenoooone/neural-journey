@@ -2,6 +2,8 @@ import React, { useCallback, useState } from 'react';
 import { classNames } from '~/shared/lib/classNames';
 import { useSendPhotoCifar } from '~/features/CifarImageRecognition/api/useSendPhotoCifar.ts';
 import { Button } from '~/shared/ui/Button';
+import { Typography } from '~/shared/ui/Typography';
+import { Input } from '~/shared/ui/Input';
 
 interface CifarImageRecognitionProps {
 	className?: string;
@@ -28,18 +30,18 @@ export const CifarImageRecognition = (props: CifarImageRecognitionProps) => {
 
 	return (
 		<div className={classNames('', {})}>
-			<h1 className='text-2xl font-bold mb-4'>
+			<Typography variant={'h2'}>
 				CIFAR Распознавание объекто на изображении
-			</h1>
-			<div className={'flex gap-2'}>
-				<input
+			</Typography>
+			<div className={'flex gap-2 mt-2'}>
+				<Input
 					type='file'
 					accept='image/*'
 					onChange={handleImageUpload}
-					className='mb-4 p-2'
+					className='mb-4 max-w-80 p-2'
 				/>
 				<Button
-					isDisabled={isLoading || !selectedImage}
+					disabled={isLoading || !selectedImage}
 					onClick={onSubmit}
 				>
 					{isLoading ? 'Загрузка...' : 'Отправить фото'}

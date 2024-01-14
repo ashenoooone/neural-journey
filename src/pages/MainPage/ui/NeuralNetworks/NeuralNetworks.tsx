@@ -8,6 +8,8 @@ import numbersNumbersImage from '~/shared/assets/neural-numbers.jpg';
 import neuralCifar from '~/shared/assets/neural-cifat.jpg';
 import drone from '~/shared/assets/drone.jpg';
 import { RoutesPaths } from '~/shared/configs/routerConfig/routerConfig.tsx';
+import { Typography } from '~/shared/ui/Typography';
+
 interface NeuralNetworksProps {
 	className?: string;
 	children?: ReactNode;
@@ -30,14 +32,16 @@ export const NeuralNetworks = (props: NeuralNetworksProps) => {
 				description:
 					'Наша нейронная сеть предоставляет невероятную точность в распознавании объектов на фотографиях, обеспечивая высокоточное и быстрое определение элементов в изображениях.',
 				image: neuralCifar,
-				link: RoutesPaths.cifar
+				link: RoutesPaths.cifar,
+				badges: ['Тестовая']
 			},
 			{
 				title: 'Распознавание объектов с фото дрона.',
 				description:
 					'Наша нейросеть, специально разработанная для анализа фотографий с дронов, обеспечивает выдающуюся точность в распознавании объектов.',
 				image: drone,
-				link: RoutesPaths.drone
+				link: RoutesPaths.drone,
+				badges: ['Тестовая']
 			}
 		],
 		[]
@@ -45,9 +49,12 @@ export const NeuralNetworks = (props: NeuralNetworksProps) => {
 
 	return (
 		<div className={classNames('py-8 px-4', {}, [className])}>
-			<h2 className='text-3xl font-bold mb-6 text-center'>
+			<Typography
+				variant={'h1'}
+				className={'mb-10'}
+			>
 				Наши нейронные сети
-			</h2>
+			</Typography>
 			<NeuralNetworkList items={items} />
 		</div>
 	);
