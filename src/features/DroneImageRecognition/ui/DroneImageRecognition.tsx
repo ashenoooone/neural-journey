@@ -39,7 +39,7 @@ export const DroneImageRecognition = (props: IDroneImageRecognition) => {
 					className='mb-4 p-2'
 				/>
 				<Button
-					isDisabled={isLoading || !selectedImage}
+					disabled={isLoading || !selectedImage}
 					onClick={onSubmit}
 				>
 					{isLoading ? 'Загрузка...' : 'Отправить фото'}
